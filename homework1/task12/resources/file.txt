@@ -1,4 +1,4 @@
-Здесь был Paul
-Здесь был George
-Здесь был John
 Здесь был Ringo
+Здесь был John
+Здесь был George
+Здесь был Paul

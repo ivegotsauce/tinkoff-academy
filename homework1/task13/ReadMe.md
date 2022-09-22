@@ -6,4 +6,4 @@
 
 Результат работы программы
 
-[logs](resources/logs.txt)
+![](resources/logs.png)

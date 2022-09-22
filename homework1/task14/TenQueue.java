@@ -1,44 +1,59 @@
 package homework1.task14;
 
 public class TenQueue {
-    int[] data = new int[10];
-    int head, tail;
-    int product = 1;
+    private final int[] data = new int[10];
+    private int head, tail;
+    private long product = 1;
+    private int zeros = 0;
     final int n = 10;
-    int size = 0;
+    private int size = 0;
 
     public TenQueue() {
         head = 0;
         tail = 0;
     }
 
-    boolean empty() {
+    synchronized boolean empty() {
         return size() == 0;
     }
 
-    public void enqueue(int val) {
+    public synchronized void enqueue(int val) {
         if (size() < n) {
             data[tail] = val;
             tail = (tail + 1) % n;
-            product *= val;
+            if (val != 0) {
+                product *= val;
+            } else {
+                zeros++;
+            }
             size++;
         }
-        System.out.println(product);
+        System.out.println("Added " + val + " product: " + getProduct());
+
     }
 
-    public Integer dequeue() {
+    public synchronized Integer dequeue() {
         if (empty()) {
             return null;
         }
         int val = data[head];
         head = (head + 1) % n;
-        product /= val;
-        System.out.println(product);
+        if (val != 0) {
+            product /= val;
+        } else {
+            zeros--;
+        }
         size--;
+        System.out.println("Removed " + val + " product: " + getProduct());
+
         return val;
     }
 
-    int size() {
+    public long getProduct() {
+        return zeros == 0 ? product : 0;
+    }
+
+    public int size() {
         return size;
     }
 }

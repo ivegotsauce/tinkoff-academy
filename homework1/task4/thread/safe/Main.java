@@ -1,11 +1,10 @@
-package homework1.task4;
-
+package homework1.task4.thread.safe;
 
 import java.util.Random;
 
 public class Main {
 
-    public static void findMax(LinkedList list) {
+    public static void findMax(ConcurrentLinkedList list) {
         int max = Integer.MIN_VALUE;
         for (int i = 0; i < list.size(); i++) {
             max = Math.max(max, list.get(i));
@@ -13,7 +12,7 @@ public class Main {
         System.out.println("Max element: " + max);
     }
 
-    public static void removeMin(LinkedList list) {
+    public static void removeMin(ConcurrentLinkedList list) {
         int min = Integer.MAX_VALUE;
         int minIndex = 0;
         for (int i = 0; i < list.size(); i++) {
@@ -25,14 +24,14 @@ public class Main {
         list.remove(minIndex);
     }
 
-    public static void addRandomElement(LinkedList list, Random random) {
+    public static void addRandomElement(ConcurrentLinkedList list, Random random) {
         list.insert(list.size() / 2, random.nextInt(15));
         printList(list);
         list.sort();
         printList(list);
     }
 
-    public static void printList(LinkedList list) {
+    public static void printList(ConcurrentLinkedList list) {
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < list.size(); i++) {
             sb.append(list.get(i)).append(" ");
@@ -41,15 +40,17 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        System.err.println("-".repeat(15) + "Classic" + "-".repeat(15));
-        System.out.println("-".repeat(15) + "Classic" + "-".repeat(15));
-        LinkedList list = new LinkedList();
         Random random = new Random();
+        ConcurrentLinkedList list2 = new ConcurrentLinkedList();
         for (int i = 0; i < 10; i++) {
-            list.add(random.nextInt(15));
+            list2.add(random.nextInt(15));
         }
-        findMax(list);
-        removeMin(list);
-        addRandomElement(list, random);
+        Thread findMaxThread = new Thread(() -> findMax(list2));
+        Thread removeMinThread = new Thread(() -> removeMin(list2));
+        Thread addRandomThread = new Thread(() -> addRandomElement(list2, random));
+        findMaxThread.start();
+        removeMinThread.start();
+        addRandomThread.start();
     }
 }
+

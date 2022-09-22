@@ -17,7 +17,7 @@ public class Singleton {
 
     }
 
-    public void action() {
+    public synchronized void action() {
         System.out.println("Singleton was called");
     }
 

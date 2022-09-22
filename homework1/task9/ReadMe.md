@@ -16,8 +16,20 @@
 ###Benchmark
 Целые числа
 
-![](resources/integers.png)
+| Operation                  | ArrayList  | LinkedList |
+|----------------------------|------------|------------|
+| AddElement                 | 8          | 11         |                           
+| Delete first element       | 927        | 3          |
+| Delete last element        | 3          | 2          |
+| Delete in different places | 7          | 5          |
+
 
 Строки
 
-![](resources/strings.png)
+| Operation                  | ArrayList | LinkedList |
+|----------------------------|-----------|------------|
+| AddElement                 | 52        | 36         |                              
+| Delete first element       | 882       | 1          |
+| Delete last element        | 0         | 2          |
+| Delete in different places | 4         | 5          |
+

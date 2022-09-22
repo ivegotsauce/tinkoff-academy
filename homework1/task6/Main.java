@@ -4,6 +4,8 @@ import java.util.Random;
 
 public class Main {
 
+    private static final float STEP = Float.parseFloat(System.getenv().get("STEP")); // STEP = 0.2
+
     static int inc(int a) {
         ++a;
         return a;
@@ -26,7 +28,7 @@ public class Main {
     }
 
     static float inc(float inc) {
-        return inc + Float.MIN_VALUE;
+        return inc + STEP;
     }
 
     static int sum(int a, int b) {

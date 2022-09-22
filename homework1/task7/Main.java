@@ -1,12 +1,25 @@
 package homework1.task7;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 public class Main {
     public static void main(String[] args) {
-        NumericalAdd a1 = new NumericalAdd();
-        StringAdd a2 = new StringAdd();
-        String a = "42";
-        String b = "36";
-        System.out.println("NumericalAdd.add(" + a + " ," +   b + ")" + " = " + a1.add(a, b));
-        System.out.println("StringAdd.add(" + a + " ," +   b + ")" + " = " + a2.add(a, b));
+        Add numericalAdd = new NumericalAdd();
+        Add stringAdd = new StringAdd();
+        System.out.println("numerical add 2 3 = " + numericalAdd.add(2, 3));
+        System.out.println("string add \"2\" \"3\" = " + stringAdd.add("2", "3"));
+
+        Print printProduct = new PrintProduct();
+        Print printConcat = new PrintConcat();
+        int[] arr = new int[3];
+        arr[0] = 2;
+        arr[1] = 3;
+        arr[2] = 4;
+        System.out.print("print product 2 3 4 = ");
+        printProduct.print(arr);
+        System.out.print("print concat 2 3 4 = ");
+        printConcat.print(arr);
     }
 }

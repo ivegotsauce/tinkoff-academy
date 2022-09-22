@@ -29,10 +29,16 @@ public class Main {
         return getSum(a, b, c, d, e);
     }
 
+    public static <T extends Comparable<T>> int compare (T a, T b) {
+        return a.compareTo(b);
+    }
+
     public static void main(String[] args) {
         sum(1, 2);
         sum(1, 2, 3);
         sum(1, 2, 3 ,4);
         sum(1, 2, 3, 4 ,5);
+        System.out.println("compare(4, 4) = " + compare(4, 4));
+        System.out.println("compare(\"abc\", \"cde\") = " +  compare("abc", "cde"));
     }
 }

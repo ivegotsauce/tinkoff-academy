@@ -7,3 +7,7 @@
 Результат работы программы
 
 ![](resources/logs.png)
+
+### Thread-safe
+
+![](resources/thread.safe.png)

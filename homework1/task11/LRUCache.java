@@ -31,9 +31,7 @@ public class LRUCache {
         Node tmp = cache.get(key);
         if (tmp == null) {
             String value =
-                    "{\n" +
-                            "\"data\":\"" + Data.values()[random.nextInt(Data.values().length)].toString() + "\"\n"
-                            + "}";
+                    "{\"data\":\"" + Data.values()[random.nextInt(Data.values().length)].toString() + "\"}";
             Node node = new Node(MRU, null, key, value);
             MRU.next = node;
             cache.put(key, node);

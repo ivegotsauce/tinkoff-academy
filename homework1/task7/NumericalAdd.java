@@ -1,9 +1,11 @@
 package homework1.task7;
 
-public class NumericalAdd extends Add{
+public class NumericalAdd extends Add {
 
     @Override
-    public String add(String a, String b) {
-        return String.valueOf(Integer.parseInt(a) + Integer.parseInt(b));
+    @SuppressWarnings("unchecked")
+    public <T> T add(T a, T b) {
+        Integer tmp = (Integer) a + (Integer) b;
+        return (T) tmp;
     }
 }
